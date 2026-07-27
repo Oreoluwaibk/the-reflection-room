@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f5f0e8;
+  --cream-deep: #ebe4d6;
+  --sage: #7d9170;
+  --sage-deep: #5f7354;
+  --sage-soft: #c8d4bc;
+  --sage-mist: #e4eadc;
+  --forest: #2c3a2b;
+  --ink: #1a2744;
+  --terracotta: #c45c3e;
+  --terracotta-deep: #a84830;
+  --lamp-glow: #e8c48a;
+  --background: var(--cream);
+  --foreground: var(--forest);
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
+  --color-sage-soft: var(--sage-soft);
+  --color-sage-mist: var(--sage-mist);
+  --color-forest: var(--forest);
+  --color-ink: var(--ink);
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-deep: var(--terracotta-deep);
+  --color-lamp: var(--lamp-glow);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--sage-soft);
+  color: var(--forest);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation: fade-up 0.8s ease-out 0.12s both;
+}
+
+.animate-fade-up-delay-2 {
+  animation: fade-up 0.8s ease-out 0.24s both;
+}
+
+.animate-fade-up-delay-3 {
+  animation: fade-up 0.8s ease-out 0.36s both;
+}
+
+.animate-soft-float {
+  animation: soft-float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow-pulse 3.5s ease-in-out infinite;
+}
+
+.leaf-pattern {
+  background-image: radial-gradient(
+      circle at 12% 18%,
+      rgba(125, 145, 112, 0.12) 0 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 78% 42%,
+      rgba(196, 92, 62, 0.08) 0 1.5px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(125, 145, 112, 0.1) 0 2px,
+      transparent 3px
+    );
+}
