@@ -1,18 +1,21 @@
 export const site = {
   name: "Isioma Anis",
+  fullName: "Isioma Aniugbo",
   domain: "isiomaanis.com",
   tagline: "Pause | Think | Grow",
   taglineSpoken: "Pause. Think. Grow.",
+  heroLead: "A Space to",
   roles: "Writer. Podcaster. Creative Entrepreneur. Storyteller. Purpose-Driven.",
-  description:
-    "A space for reflections, conversations, stories, and purpose.",
-  youtubeUrl: "https://www.youtube.com/@TheReflectionRoom",
+  description: "A Space to Pause. Think. Grow.",
+  aboutIntro:
+    "Hi, I'm Isioma Aniugbo. I write, speak, and create under the name Isioma Anis.",
+  youtubeUrl: "https://www.youtube.com/@ReflectingRoom",
   email: "hello@isiomaanis.com",
   social: {
-    facebook: "#",
+    facebook: "https://www.facebook.com/isioma.aniugbo",
     instagram: "#",
     linkedin: "#",
-    youtube: "https://www.youtube.com/@TheReflectionRoom",
+    youtube: "https://www.youtube.com/@ReflectingRoom",
   },
 } as const;
 

@@ -105,7 +105,7 @@ export function Footer() {
       <div className="border-t border-sage/25 bg-forest text-cream/90">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-3.5 text-center text-xs tracking-wide sm:flex-row sm:text-left md:px-8">
           <p>
-            © {new Date().getFullYear()} {site.name}. All Rights Reserved.
+            © {new Date().getFullYear()} {site.fullName}. All Rights Reserved.
           </p>
           <Link href="/" className="hover:text-cream">
             {site.domain}

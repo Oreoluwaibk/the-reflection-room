@@ -24,14 +24,11 @@ export function Hero() {
           <h1 className="animate-fade-up-delay-1 mt-2 font-serif text-4xl leading-tight text-forest sm:text-5xl md:text-[3.35rem]">
             {site.domain}
           </h1>
-          <p className="animate-fade-up-delay-1 mt-4 text-lg leading-relaxed text-forest/75">
-            {site.description}
+          <p className="animate-fade-up-delay-2 mt-6 text-lg leading-relaxed text-forest/80 md:text-xl">
+            {site.heroLead}
           </p>
-          <p className="animate-fade-up-delay-2 mt-6 font-serif text-3xl italic text-forest md:text-4xl">
+          <p className="animate-fade-up-delay-2 mt-1 font-serif text-3xl italic text-forest md:text-4xl">
             {site.taglineSpoken}
-          </p>
-          <p className="animate-fade-up-delay-2 mt-3 text-sm tracking-wide text-forest/65">
-            {site.roles}
           </p>
 
           <div className="animate-fade-up-delay-3 mt-8 flex flex-wrap gap-3">

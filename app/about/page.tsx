@@ -21,8 +21,10 @@ export default function AboutPage() {
               My story, journey, and mission
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-forest/75">
-              I write, host conversations, and build creative work that helps
-              people pause, think, and grow — with honesty, clarity, and heart.
+              {site.aboutIntro}
+            </p>
+            <p className="mt-3 text-sm tracking-wide text-forest/65">
+              {site.roles}
             </p>
           </div>
           <div className="animate-fade-up-delay-1 flex justify-center md:justify-end">
@@ -51,11 +53,12 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
         <div className="space-y-6 text-base leading-relaxed text-forest/80 md:text-lg">
+          <p>{site.aboutIntro}</p>
           <p>
-            {site.name} is a writer, podcaster, creative entrepreneur, and
-            storyteller. This website is a living home for reflections on life
-            and growth, conversations from The Reflection Room, published books,
-            and the projects I&apos;m building.
+            I&apos;m a writer, podcaster, creative entrepreneur, and storyteller.
+            This website is a living home for reflections on life and growth,
+            conversations from The Reflection Room, published books, and the
+            projects I&apos;m building.
           </p>
           <p>
             The IA logo — a pen formed into the letter{" "}
