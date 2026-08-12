@@ -16,11 +16,12 @@ export default function BookshelfPage() {
             The Book Shelf
           </p>
           <h1 className="animate-fade-up-delay-1 mt-3 max-w-2xl font-serif text-4xl text-forest md:text-5xl">
-            Written &amp; published work
+            Compiled words, carved into books
           </h1>
           <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-lg text-forest/70">
-            A showcase for books I&apos;ve written — with room for covers, sample
-            chapters, and where readers can find them.
+            Compiled words, carved into books, created to inspire a lasting
+            impact. Explore the books and discover something that stays with you
+            long after you turn the page.
           </p>
         </div>
       </section>

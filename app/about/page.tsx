@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `Meet ${site.name} — writer, podcaster, and creative entrepreneur.`,
+  description: `Meet the woman behind the words — ${site.fullName}, writing as ${site.name}.`,
 };
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="mt-3 font-serif text-4xl text-forest md:text-5xl">
-              My story, journey, and mission
+              Meet the Woman Behind the Words
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-forest/75">
               {site.aboutIntro}
@@ -53,27 +53,37 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
         <div className="space-y-6 text-base leading-relaxed text-forest/80 md:text-lg">
-          <p>{site.aboutIntro}</p>
           <p>
-            I&apos;m a writer, podcaster, creative entrepreneur, and storyteller.
-            This website is a living home for reflections on life and growth,
-            conversations from The Reflection Room, published books, and the
-            projects I&apos;m building.
+            I&apos;m a writer, speaker, and creative entrepreneur. This is a
+            home for my thoughts, written in ink — where they become words,
+            stories, reflections, conversations, books, and projects.
           </p>
           <p>
-            The IA logo — a pen formed into the letter{" "}
-            <span className="font-medium text-forest">i</span> — is a reminder
-            that writing is at the center of everything I create. The signature
-            you see throughout the site is personal, intentional, and part of
-            the brand I&apos;m building.
+            My experiences, questions, observations, and the lessons life keeps
+            teaching me often find their way into what I create. Through it all,
+            I&apos;m interested in the things that make us pause, think, grow,
+            and see life a little differently.
+          </p>
+          <p>
+            My journey has taken me through different spaces, experiences, and
+            seasons, each shaping how I see, create, and connect with the world.
+          </p>
+          <p>
+            From My Reflections to {site.reflectingRoom}, the books I&apos;ve
+            written to the ideas I&apos;m building, everything here is part of a
+            journey of creating, learning, and growing.
+          </p>
+          <p>
+            The signature throughout this space is personal, intentional, and
+            part of the story I&apos;m building.
           </p>
           <p className="font-serif text-2xl italic text-forest">
             {site.taglineSpoken}
           </p>
           <p>
-            Whether you arrive through an article, a podcast episode, or a book,
-            my hope is that you leave with something to carry — a clearer
-            thought, a softer pause, or a renewed sense of purpose.
+            Whether you arrive through a reflection, a conversation, or a book,
+            I hope you find something to pause over, think about, and carry with
+            you.
           </p>
         </div>
 

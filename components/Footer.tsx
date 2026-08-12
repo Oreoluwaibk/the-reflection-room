@@ -32,8 +32,7 @@ export function Footer() {
         <div>
           <BrandMark size="md" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-forest/75">
-            A home for reflections, conversations, stories, and purpose-driven
-            work.
+            A home for my thoughts, written in ink.
           </p>
         </div>
 
@@ -74,11 +73,10 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-serif text-xl text-forest">
-            Join my mailing list
-          </h2>
+          <h2 className="font-serif text-xl text-forest">Lock It In</h2>
           <p className="mt-2 text-sm text-forest/70">
-            Reflections, episodes, and new work — delivered with care.
+            Stay connected to reflections, conversations, and everything in
+            between.
           </p>
           <form className="mt-4 flex flex-col gap-2 sm:flex-row" action="#">
             <label className="sr-only" htmlFor="footer-email">
@@ -96,7 +94,7 @@ export function Footer() {
               type="submit"
               className="rounded-md bg-terracotta px-5 py-2.5 text-sm font-medium text-cream transition hover:bg-terracotta-deep"
             >
-              Subscribe
+              Lock It In
             </button>
           </form>
         </div>

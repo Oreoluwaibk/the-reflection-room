@@ -5,7 +5,7 @@ import { reflections, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "My Reflections",
   description:
-    "Article-based writings on life, growth, and purposeful living by Isioma Anis.",
+    "Inspired by thoughts, observations, and the everyday moments in between.",
 };
 
 export default function ReflectionsPage() {
@@ -17,11 +17,11 @@ export default function ReflectionsPage() {
             My Reflections
           </p>
           <h1 className="animate-fade-up-delay-1 mt-3 max-w-2xl font-serif text-4xl text-forest md:text-5xl">
-            Thoughts on life and growth
+            Inspired by thoughts and observations
           </h1>
           <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-lg text-forest/70">
-            Article-based writings — quiet observations, honest questions, and
-            reflections meant to help you {site.taglineSpoken.toLowerCase()}
+            Inspired by thoughts, observations, and the everyday moments in
+            between.
           </p>
         </div>
       </section>

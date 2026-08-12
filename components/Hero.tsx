@@ -44,7 +44,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-md border border-terracotta/50 bg-cream px-4 py-2.5 text-sm font-medium text-terracotta transition hover:border-terracotta hover:bg-cream-deep"
             >
               <IconMic className="h-4 w-4" />
-              Listen to The Reflection Room
+              Listen to {site.reflectingRoom}
             </Link>
             <Link
               href="/bookshelf"

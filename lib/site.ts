@@ -2,20 +2,23 @@ export const site = {
   name: "Isioma Anis",
   fullName: "Isioma Aniugbo",
   domain: "isiomaanis.com",
+  reflectingRoom: "The Reflecting Room",
   tagline: "Pause | Think | Grow",
   taglineSpoken: "Pause. Think. Grow.",
   heroLead: "A Space to",
-  roles: "Writer. Podcaster. Creative Entrepreneur. Storyteller. Purpose-Driven.",
+  roles: "Writer. Speaker. Creative Entrepreneur.",
   description: "A Space to Pause. Think. Grow.",
+  siteIntro:
+    "Welcome to my thoughts, written in ink. Here, everyday experiences, ideas, and observations become reflections, stories, books, and projects.",
   aboutIntro:
     "Hi, I'm Isioma Aniugbo. I write, speak, and create under the name Isioma Anis.",
-  youtubeUrl: "https://www.youtube.com/@ReflectingRoom",
+  youtubeUrl: "https://youtube.com/@reflectingroom",
   email: "hello@isiomaanis.com",
   social: {
     facebook: "https://www.facebook.com/isioma.aniugbo",
-    instagram: "#",
-    linkedin: "#",
-    youtube: "https://www.youtube.com/@ReflectingRoom",
+    instagram: "https://www.instagram.com/isiomaaniugbo/",
+    linkedin: "https://www.linkedin.com/in/isioma-aniugbo/",
+    youtube: "https://youtube.com/@reflectingroom",
   },
 } as const;
 
@@ -23,7 +26,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/reflections", label: "My Reflections" },
-  { href: "/reflection-room", label: "The Reflection Room" },
+  { href: "/reflection-room", label: "The Reflecting Room" },
   { href: "/bookshelf", label: "The Book Shelf" },
   { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
@@ -33,37 +36,42 @@ export const pageGuides = [
   {
     href: "/",
     title: "Home",
-    description: "Welcome message and a clear overview of everything you'll find here.",
+    description:
+      "Welcome to the space where thoughts, written in ink, find a home. There's room for you.",
     icon: "home",
   },
   {
     href: "/about",
     title: "About",
-    description: "My story, journey, and the mission behind the work I create.",
+    description:
+      "Meet the woman behind the words — her story, journey, values, and the experiences that shape who she is and what she creates.",
     icon: "about",
   },
   {
     href: "/reflections",
     title: "My Reflections",
-    description: "Article-based writings on life, growth, and purposeful living.",
+    description: "Inspired by thoughts and observations.",
     icon: "reflections",
   },
   {
     href: "/reflection-room",
-    title: "The Reflection Room",
-    description: "Podcast conversations that invite you to pause, think, and grow.",
+    title: "The Reflecting Room",
+    description:
+      "A space to pause, think, and grow in a world that rarely slows down. Take a seat — let's reflect.",
     icon: "podcast",
   },
   {
     href: "/bookshelf",
     title: "The Book Shelf",
-    description: "Published books with sample chapters and where to find them.",
+    description:
+      "Compiled words, carved into books, created to inspire a lasting impact.",
     icon: "books",
   },
   {
     href: "/projects",
     title: "Projects",
-    description: "Initiatives and creative work I'm building beyond the page.",
+    description:
+      "Ideas, initiatives, and creative work I'm building beyond the page.",
     icon: "projects",
   },
   {
@@ -72,6 +80,12 @@ export const pageGuides = [
     description: "Reach out for collaborations, speaking, or thoughtful inquiries.",
     icon: "contact",
   },
+] as const;
+
+export const whyThisWebsite = [
+  "A home for my thoughts, written in ink.",
+  "Where thoughts become words, stories, reflections, and conversations.",
+  "A place for what I've created, what I'm building, and what's yet to come.",
 ] as const;
 
 export const reflections = [

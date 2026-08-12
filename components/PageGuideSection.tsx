@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IconCheck, IconLeaf, pageIcons } from "@/components/icons";
-import { pageGuides, site } from "@/lib/site";
+import { pageGuides, site, whyThisWebsite } from "@/lib/site";
 
 export function PageGuideSection() {
   return (
@@ -17,8 +17,8 @@ export function PageGuideSection() {
             Website Pages &amp; Descriptions
           </h2>
           <p className="mt-3 text-base leading-relaxed text-forest/70">
-            Everything you need to explore my work, my story, and the projects
-            I&apos;m building.
+            {site.siteIntro} Come explore the work I&apos;ve created, the stories
+            I&apos;m telling, and the things I&apos;m building.
           </p>
         </div>
 
@@ -53,13 +53,7 @@ export function PageGuideSection() {
           <aside className="rounded-xl bg-sage px-6 py-7 text-cream sm:col-span-2 lg:col-span-1 xl:col-span-1">
             <h3 className="font-serif text-2xl">Why This Website?</h3>
             <ul className="mt-5 space-y-3.5 text-sm leading-relaxed text-cream/95">
-              {[
-                "A central home for everything I create and share.",
-                "Easy to explore and navigate.",
-                "Designed to grow with me over time.",
-                "Mobile-friendly & user-friendly.",
-                "Elegant, clean & purposeful.",
-              ].map((item) => (
+              {whyThisWebsite.map((item) => (
                 <li key={item} className="flex gap-2.5">
                   <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-cream" />
                   <span>{item}</span>

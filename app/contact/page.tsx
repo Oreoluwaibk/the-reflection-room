@@ -121,7 +121,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="text-lamp hover:underline"
               >
-                The Reflection Room on YouTube
+                {site.reflectingRoom} on YouTube
               </a>
               .
             </p>

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { projects, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: `Creative initiatives and purpose-led projects by ${site.name}.`,
+  description: `Ideas, initiatives, and creative work by ${site.name}.`,
 };
 
 export default function ProjectsPage() {
@@ -16,11 +15,11 @@ export default function ProjectsPage() {
             Projects
           </p>
           <h1 className="animate-fade-up-delay-1 mt-3 max-w-2xl font-serif text-4xl text-forest md:text-5xl">
-            Work beyond the page
+            Words Beyond The Page
           </h1>
           <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-lg text-forest/70">
-            Initiatives, collaborations, and creative work that extend the
-            spirit of {site.taglineSpoken}
+            Ideas, initiatives, and creative work I&apos;m building beyond the
+            page.
           </p>
         </div>
       </section>
@@ -43,20 +42,6 @@ export default function ProjectsPage() {
               </p>
             </article>
           ))}
-        </div>
-
-        <div className="mt-14 rounded-2xl bg-sage px-7 py-9 text-cream md:px-10">
-          <h2 className="font-serif text-3xl">Building with purpose</h2>
-          <p className="mt-3 max-w-2xl text-cream/90">
-            Have an idea, partnership, or community project in mind? I&apos;d
-            love to hear how we might create something meaningful together.
-          </p>
-          <Link
-            href="/contact"
-            className="mt-6 inline-flex rounded-md bg-cream px-5 py-2.5 text-sm font-medium text-forest transition hover:bg-cream-deep"
-          >
-            Start a Conversation
-          </Link>
         </div>
       </section>
     </div>
