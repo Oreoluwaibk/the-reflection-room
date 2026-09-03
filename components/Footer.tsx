@@ -114,7 +114,7 @@ export function Footer() {
               alt=""
               width={90}
               height={28}
-              className="brightness-0 invert opacity-80"
+              className="h-auto w-auto brightness-0 invert opacity-80"
               style={{ width: "auto", height: "auto", maxHeight: 28 }}
               aria-hidden
             />

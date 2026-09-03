@@ -18,34 +18,37 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="mt-3 font-serif text-4xl text-forest md:text-5xl">
-              Meet the Woman Behind the Words
+              Welcome to my corner of the world.
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-forest/75">
-              {site.aboutIntro}
-            </p>
-            <p className="mt-3 text-sm tracking-wide text-forest/65">
-              {site.roles}
+              I&apos;m a writer, speaker, and creative entrepreneur.
             </p>
           </div>
           <div className="animate-fade-up-delay-1 flex justify-center md:justify-end">
-            <div className="relative rounded-2xl bg-cream p-8 shadow-[0_20px_50px_-30px_rgba(44,58,43,0.4)]">
-              <Image
-                src="/brand/logo-ia.png"
-                alt="IA personal logo"
-                width={120}
-                height={120}
-                className="mx-auto"
-              />
-              <Image
-                src="/brand/signature.png"
-                alt={site.name}
-                width={200}
-                height={64}
-                className="mx-auto mt-4"
-              />
-              <p className="mt-3 text-center text-xs tracking-[0.28em] text-sage-deep uppercase">
-                {site.tagline.replaceAll("|", " ")}
-              </p>
+            <div className="w-full max-w-sm">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-2xl bg-cream shadow-[0_20px_50px_-30px_rgba(44,58,43,0.45)] ring-1 ring-forest/5">
+                <Image
+                  src="/brand/isioma-about.jpeg"
+                  alt={`${site.fullName}, writing as ${site.name}`}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 90vw, 24rem"
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <Image
+                  src="/brand/signature.png"
+                  alt={site.name}
+                  width={180}
+                  height={56}
+                  className="mx-auto h-auto w-auto object-contain"
+                  style={{ width: "auto", height: "auto", maxWidth: 180 }}
+                />
+                <p className="mt-2 text-xs tracking-[0.28em] text-sage-deep uppercase">
+                  {site.tagline.replaceAll("|", " ")}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -54,37 +57,28 @@ export default function AboutPage() {
       <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
         <div className="space-y-6 text-base leading-relaxed text-forest/80 md:text-lg">
           <p>
-            I&apos;m a writer, speaker, and creative entrepreneur. This is a
-            home for my thoughts, written in ink — where they become words,
-            stories, reflections, conversations, books, and projects.
+            This is a home for my thoughts, written in ink, where experiences,
+            questions, observations, and the lessons life keeps teaching me
+            become words, stories, reflections, conversations, books, and
+            projects.
           </p>
           <p>
-            My experiences, questions, observations, and the lessons life keeps
-            teaching me often find their way into what I create. Through it all,
-            I&apos;m interested in the things that make us pause, think, grow,
-            and see life a little differently.
+            My journey has taken me through different spaces and seasons, each
+            shaping how I see, create, and connect with the world.
           </p>
           <p>
-            My journey has taken me through different spaces, experiences, and
-            seasons, each shaping how I see, create, and connect with the world.
-          </p>
-          <p>
-            From My Reflections to {site.reflectingRoom}, the books I&apos;ve
-            written to the ideas I&apos;m building, everything here is part of a
-            journey of creating, learning, and growing.
-          </p>
-          <p>
-            The signature throughout this space is personal, intentional, and
-            part of the story I&apos;m building.
-          </p>
-          <p className="font-serif text-2xl italic text-forest">
-            {site.taglineSpoken}
+            From My Reflections to the books I write and ideas still ideating,
+            everything here is part of that journey. A journey of creating,
+            learning, and growing.
           </p>
           <p>
             Whether you arrive through a reflection, a conversation, or a book,
-            I hope you find something to pause over, think about, and carry with
-            you.
+            I hope you find something that makes you take a pause, think deeply,
+            and perhaps see life a little differently.
           </p>
+          <p className="font-serif text-xl italic text-forest">Take a seat.</p>
+          <p>Let&apos;s take the journey together.</p>
+          <p className="font-serif text-2xl text-forest">{site.name}</p>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">

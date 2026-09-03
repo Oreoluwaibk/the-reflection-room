@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { reflections } from "@/lib/site";
+import { reflections, site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -40,18 +41,33 @@ export default async function ReflectionArticlePage({ params }: Props) {
       <h1 className="mt-3 font-serif text-4xl leading-tight text-forest md:text-5xl">
         {post.title}
       </h1>
-      <p className="mt-6 text-lg leading-relaxed text-forest/75">{post.excerpt}</p>
-      <div className="mt-10 space-y-5 text-base leading-relaxed text-forest/80">
-        <p>
-          This reflection is a placeholder for your published writing. When
-          you&apos;re ready, replace this page with the full article — your
-          voice, your pacing, your truth.
-        </p>
-        <p>
-          The archive is designed to feel calm and readable: one thought at a
-          time, room to breathe, and a clear path back to the rest of your work.
-        </p>
+      <div className="mt-10 space-y-5 text-base leading-relaxed text-forest/80 md:text-lg">
+        {post.body.map((paragraph, index) => (
+          <p
+            key={index}
+            className={
+              paragraph.length < 48
+                ? "font-serif text-xl leading-snug text-forest md:text-2xl"
+                : undefined
+            }
+          >
+            {paragraph}
+          </p>
+        ))}
       </div>
+      <footer className="mt-12 border-t border-sage-soft pt-8">
+        <Image
+          src="/brand/signature.png"
+          alt={post.author}
+          width={160}
+          height={50}
+          className="h-auto w-auto object-contain object-left"
+          style={{ width: "auto", height: "auto", maxWidth: 160 }}
+        />
+        <p className="mt-2 font-serif text-lg text-forest">
+          {post.author ?? site.name}
+        </p>
+      </footer>
     </article>
   );
 }

@@ -41,7 +41,7 @@ export function BrandMark({
           alt={site.name}
           width={s.signature}
           height={Math.round(s.signature * 0.4)}
-          className="object-contain object-left"
+          className="h-auto w-auto object-contain object-left"
           style={{ width: "auto", height: "auto", maxWidth: s.signature }}
           priority
         />

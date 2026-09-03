@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { reflections, site } from "@/lib/site";
+import { reflections } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "My Reflections",
@@ -13,13 +13,10 @@ export default function ReflectionsPage() {
     <div>
       <section className="border-b border-sage-soft/60 bg-cream">
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
-          <p className="animate-fade-up text-sm font-medium tracking-[0.2em] text-terracotta uppercase">
+          <h1 className="animate-fade-up max-w-2xl font-serif text-4xl text-forest md:text-5xl">
             My Reflections
-          </p>
-          <h1 className="animate-fade-up-delay-1 mt-3 max-w-2xl font-serif text-4xl text-forest md:text-5xl">
-            Inspired by thoughts and observations
           </h1>
-          <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-lg text-forest/70">
+          <p className="animate-fade-up-delay-1 mt-4 max-w-xl text-lg text-forest/70">
             Inspired by thoughts, observations, and the everyday moments in
             between.
           </p>

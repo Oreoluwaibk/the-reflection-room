@@ -6,8 +6,15 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { BrandMark } from "@/components/BrandMark";
+import { ReflectingRoomTrigger } from "@/components/ReflectingRoomTrigger";
 import { IconClose, IconMenu } from "@/components/icons";
 import { navLinks, site } from "@/lib/site";
+
+function isComingSoon(
+  link: (typeof navLinks)[number],
+): link is (typeof navLinks)[number] & { comingSoon: true } {
+  return "comingSoon" in link && link.comingSoon === true;
+}
 
 export function Header() {
   const pathname = usePathname();
@@ -106,27 +113,39 @@ export function Header() {
             <ul className="flex flex-col gap-1">
               {navLinks.map((link) => {
                 const active =
-                  link.href === "/"
+                  !isComingSoon(link) &&
+                  (link.href === "/"
                     ? pathname === "/"
-                    : pathname.startsWith(link.href);
+                    : pathname.startsWith(link.href));
+
+                const className = `block w-full rounded-lg px-4 py-3.5 text-left text-base tracking-wide transition ${
+                  active
+                    ? "bg-sage-mist text-terracotta"
+                    : "text-forest hover:bg-sage-mist/60"
+                }`;
 
                 return (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      tabIndex={open ? 0 : -1}
-                      className={`block rounded-lg px-4 py-3.5 text-base tracking-wide transition ${
-                        active
-                          ? "bg-sage-mist text-terracotta"
-                          : "text-forest hover:bg-sage-mist/60"
-                      }`}
-                      onClick={() => setOpen(false)}
-                    >
-                      {link.label}
-                      {active ? (
-                        <span className="mt-1 block h-px w-8 bg-terracotta" />
-                      ) : null}
-                    </Link>
+                    {isComingSoon(link) ? (
+                      <ReflectingRoomTrigger
+                        className={className}
+                        onAfterOpen={() => setOpen(false)}
+                      >
+                        {link.label}
+                      </ReflectingRoomTrigger>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        tabIndex={open ? 0 : -1}
+                        className={className}
+                        onClick={() => setOpen(false)}
+                      >
+                        {link.label}
+                        {active ? (
+                          <span className="mt-1 block h-px w-8 bg-terracotta" />
+                        ) : null}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
@@ -139,7 +158,7 @@ export function Header() {
               alt={site.name}
               width={140}
               height={44}
-              className="object-contain object-left"
+              className="h-auto w-auto object-contain object-left"
               style={{ width: "auto", height: "auto", maxWidth: 140 }}
             />
             <p className="mt-2 text-xs tracking-wide text-forest/60">
@@ -159,20 +178,25 @@ export function Header() {
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {navLinks.map((link) => {
             const active =
-              link.href === "/"
+              !isComingSoon(link) &&
+              (link.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(link.href);
+                : pathname.startsWith(link.href));
+
+            const className = `relative px-2.5 py-2 text-[0.82rem] font-medium tracking-wide transition-colors ${
+              active ? "text-terracotta" : "text-forest/80 hover:text-forest"
+            }`;
+
+            if (isComingSoon(link)) {
+              return (
+                <ReflectingRoomTrigger key={link.href} className={className}>
+                  {link.label}
+                </ReflectingRoomTrigger>
+              );
+            }
 
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative px-2.5 py-2 text-[0.82rem] font-medium tracking-wide transition-colors ${
-                  active
-                    ? "text-terracotta"
-                    : "text-forest/80 hover:text-forest"
-                }`}
-              >
+              <Link key={link.href} href={link.href} className={className}>
                 {link.label}
                 <span
                   className={`absolute inset-x-2.5 -bottom-0.5 h-px origin-left bg-terracotta transition-transform duration-300 ${

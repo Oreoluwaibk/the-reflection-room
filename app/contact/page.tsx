@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { ReflectingRoomTrigger } from "@/components/ReflectingRoomTrigger";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Contact ${site.name} for collaborations, speaking, and inquiries.`,
+  description: `Let's connect with ${site.name}. I'd be glad to hear from you.`,
 };
 
 export default function ContactPage() {
@@ -11,14 +12,10 @@ export default function ContactPage() {
     <div>
       <section className="border-b border-sage-soft/60 bg-sage-mist/40">
         <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
-          <p className="animate-fade-up text-sm font-medium tracking-[0.2em] text-terracotta uppercase">
-            Contact
-          </p>
-          <h1 className="animate-fade-up-delay-1 mt-3 max-w-2xl font-serif text-4xl text-forest md:text-5xl">
+          <h1 className="animate-fade-up max-w-2xl font-serif text-4xl text-forest md:text-5xl">
             Let&apos;s connect
           </h1>
-          <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-lg text-forest/70">
-            Collaborations, speaking invitations, press, or a thoughtful note —
+          <p className="animate-fade-up-delay-1 mt-4 max-w-xl text-lg text-forest/70">
             I&apos;d be glad to hear from you.
           </p>
         </div>
@@ -114,15 +111,10 @@ export default function ContactPage() {
               {site.email}
             </a>
             <p className="mt-8 text-sm leading-relaxed text-cream/75">
-              For podcast episodes and video conversations, visit{" "}
-              <a
-                href={site.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lamp hover:underline"
-              >
-                {site.reflectingRoom} on YouTube
-              </a>
+              For podcast episodes and video conversations, check{" "}
+              <ReflectingRoomTrigger className="text-lamp underline-offset-2 hover:underline">
+                {site.reflectingRoom}
+              </ReflectingRoomTrigger>
               .
             </p>
           </div>

@@ -1,6 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { IconCheck, IconLeaf, pageIcons } from "@/components/icons";
+import { ReflectingRoomTrigger } from "@/components/ReflectingRoomTrigger";
 import { pageGuides, site, whyThisWebsite } from "@/lib/site";
+
+function isComingSoon(
+  page: (typeof pageGuides)[number],
+): page is (typeof pageGuides)[number] & { comingSoon: true } {
+  return "comingSoon" in page && page.comingSoon === true;
+}
 
 export function PageGuideSection() {
   return (
@@ -17,20 +26,19 @@ export function PageGuideSection() {
             Website Pages &amp; Descriptions
           </h2>
           <p className="mt-3 text-base leading-relaxed text-forest/70">
-            {site.siteIntro} Come explore the work I&apos;ve created, the stories
-            I&apos;m telling, and the things I&apos;m building.
+            Explore the work I&apos;ve created, the stories I&apos;m telling, and
+            the things I&apos;m building.
           </p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {pageGuides.map((page, index) => {
             const Icon = pageIcons[page.icon as keyof typeof pageIcons];
-            return (
-              <Link
-                key={page.href}
-                href={page.href}
-                className="group flex flex-col rounded-xl border border-sage-soft/80 bg-cream-deep/40 p-5 transition duration-300 hover:-translate-y-1 hover:border-sage hover:bg-cream"
-              >
+            const className =
+              "group flex h-full w-full flex-col rounded-xl border border-sage-soft/80 bg-cream-deep/40 p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-sage hover:bg-cream";
+
+            const content = (
+              <>
                 <div className="mb-4 flex items-center justify-between">
                   <span className="text-xs font-medium tracking-[0.2em] text-terracotta uppercase">
                     {String(index + 1).padStart(2, "0")}
@@ -44,8 +52,25 @@ export function PageGuideSection() {
                   {page.description}
                 </p>
                 <span className="mt-4 text-xs font-medium tracking-wide text-terracotta">
-                  Explore →
+                  {isComingSoon(page) ? "Coming soon →" : "Explore →"}
                 </span>
+              </>
+            );
+
+            if (isComingSoon(page)) {
+              return (
+                <ReflectingRoomTrigger
+                  key={page.href}
+                  className={className}
+                >
+                  {content}
+                </ReflectingRoomTrigger>
+              );
+            }
+
+            return (
+              <Link key={page.href} href={page.href} className={className}>
+                {content}
               </Link>
             );
           })}
