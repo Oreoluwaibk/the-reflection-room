@@ -32,7 +32,7 @@ export function ComingSoonProvider({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const [feature, setFeature] = useState(site.reflectingRoom);
+  const [feature, setFeature] = useState<string>(site.reflectingRoom);
   const [mounted, setMounted] = useState(false);
   const titleId = useId();
 
@@ -56,8 +56,8 @@ export function ComingSoonProvider({
     };
   }, [open]);
 
-  const openComingSoon = useCallback((nextFeature = site.reflectingRoom) => {
-    setFeature(nextFeature);
+  const openComingSoon = useCallback((nextFeature?: string) => {
+    setFeature(nextFeature ?? site.reflectingRoom);
     setOpen(true);
   }, []);
 
