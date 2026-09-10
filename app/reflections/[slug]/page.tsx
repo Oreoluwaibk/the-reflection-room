@@ -2,19 +2,29 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { reflections, site } from "@/lib/site";
+import { getApprovedComments } from "@/app/actions/comments";
+import { CommentSection } from "@/components/CommentSection";
+import {
+  getPublishedReflections,
+  getReflectionBySlug,
+} from "@/lib/content/queries";
+import { getSiteSettings } from "@/lib/content/settings";
+import { site } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const revalidate = 30;
+
 export async function generateStaticParams() {
+  const reflections = await getPublishedReflections();
   return reflections.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = reflections.find((item) => item.slug === slug);
+  const post = await getReflectionBySlug(slug);
   if (!post) return { title: "Reflection" };
   return {
     title: post.title,
@@ -24,8 +34,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ReflectionArticlePage({ params }: Props) {
   const { slug } = await params;
-  const post = reflections.find((item) => item.slug === slug);
+  const [post, settings] = await Promise.all([
+    getReflectionBySlug(slug),
+    getSiteSettings(),
+  ]);
   if (!post) notFound();
+
+  const showComments = settings.comments_enabled && post.comments_enabled;
+  const comments = showComments
+    ? await getApprovedComments("reflection", slug)
+    : [];
 
   return (
     <article className="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-20">
@@ -68,6 +86,14 @@ export default async function ReflectionArticlePage({ params }: Props) {
           {post.author ?? site.name}
         </p>
       </footer>
+
+      {showComments ? (
+        <CommentSection
+          targetType="reflection"
+          targetSlug={slug}
+          initialComments={comments}
+        />
+      ) : null}
     </article>
   );
 }

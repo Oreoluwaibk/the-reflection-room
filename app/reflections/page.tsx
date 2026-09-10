@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { reflections } from "@/lib/site";
+import { getPublishedReflections } from "@/lib/content/queries";
 
 export const metadata: Metadata = {
   title: "My Reflections",
@@ -9,7 +9,11 @@ export const metadata: Metadata = {
     "Inspired by thoughts, observations, and the everyday moments in between.",
 };
 
-export default function ReflectionsPage() {
+export const revalidate = 30;
+
+export default async function ReflectionsPage() {
+  const reflections = await getPublishedReflections();
+
   return (
     <div>
       <section className="border-b border-sage-soft/60 bg-cream">
@@ -40,33 +44,39 @@ export default function ReflectionsPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-14 md:px-8">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {reflections.map((post, index) => (
-            <article
-              key={post.slug}
-              className="group flex flex-col border-b border-sage-soft pb-6 transition hover:border-sage"
-              style={{ animationDelay: `${index * 0.08}s` }}
-            >
-              <div className="flex items-center gap-3 text-xs tracking-wide text-sage-deep uppercase">
-                <span>{post.category}</span>
-                <span className="h-1 w-1 rounded-full bg-terracotta/70" />
-                <time>{post.date}</time>
-              </div>
-              <h2 className="mt-3 font-serif text-2xl leading-snug text-forest group-hover:text-sage-deep">
-                <Link href={`/reflections/${post.slug}`}>{post.title}</Link>
-              </h2>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-forest/70">
-                {post.excerpt}
-              </p>
-              <Link
-                href={`/reflections/${post.slug}`}
-                className="mt-5 text-sm font-medium text-terracotta"
+        {reflections.length === 0 ? (
+          <p className="text-sm italic text-forest/55">
+            Reflections will appear here once published.
+          </p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {reflections.map((post, index) => (
+              <article
+                key={post.slug}
+                className="group flex flex-col border-b border-sage-soft pb-6 transition hover:border-sage"
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
-                Continue reading →
-              </Link>
-            </article>
-          ))}
-        </div>
+                <div className="flex items-center gap-3 text-xs tracking-wide text-sage-deep uppercase">
+                  <span>{post.category}</span>
+                  <span className="h-1 w-1 rounded-full bg-terracotta/70" />
+                  <time>{post.date}</time>
+                </div>
+                <h2 className="mt-3 font-serif text-2xl leading-snug text-forest group-hover:text-sage-deep">
+                  <Link href={`/reflections/${post.slug}`}>{post.title}</Link>
+                </h2>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-forest/70">
+                  {post.excerpt}
+                </p>
+                <Link
+                  href={`/reflections/${post.slug}`}
+                  className="mt-5 text-sm font-medium text-terracotta"
+                >
+                  Continue reading →
+                </Link>
+              </article>
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

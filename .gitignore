@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+/supabase/migrations
+/supabase/seed.sql
+
 # next.js
 /.next/
 /out/
