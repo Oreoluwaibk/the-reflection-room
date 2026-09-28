@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getApprovedComments } from "@/app/actions/comments";
 import { CommentSection } from "@/components/CommentSection";
+import { bookPurchaseLabel } from "@/lib/content/bookLabels";
 import { getBookBySlug, getPublishedBooks } from "@/lib/content/queries";
 import { getSiteSettings } from "@/lib/content/settings";
 
@@ -42,7 +43,7 @@ export default async function BookDetailPage({ params }: Props) {
     : [];
   const cover = book.images[0];
   const extras = book.images.slice(1);
-  const hasPurchase = Boolean(book.purchase_url);
+  const purchaseLabel = bookPurchaseLabel(book.status, book.purchase_url);
 
   return (
     <article className="mx-auto max-w-5xl px-5 py-16 md:px-8 md:py-20">
@@ -119,20 +120,20 @@ export default async function BookDetailPage({ params }: Props) {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            {hasPurchase ? (
+            {purchaseLabel && book.purchase_url ? (
               <a
-                href={book.purchase_url!}
+                href={book.purchase_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex rounded-md bg-terracotta px-6 py-2.5 text-sm font-medium text-cream transition hover:bg-terracotta-deep"
               >
-                Get on Selar →
+                {purchaseLabel}
               </a>
-            ) : (
+            ) : book.status === "Coming Soon" ? (
               <p className="text-sm font-medium text-sage-deep">
                 This title is still being written.
               </p>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ export type Reflection = {
   updated_at: string;
 };
 
-export type BookStatus = "Published" | "Coming Soon";
+export type BookStatus = "Published" | "Coming Soon" | "Pre-order";
 
 export type Book = {
   id: string;

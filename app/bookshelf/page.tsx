@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { bookPurchaseLabel } from "@/lib/content/bookLabels";
 import { getPublishedBooks } from "@/lib/content/queries";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "The Book Shelf",
-  description: `Published books by ${site.name} — including Released, with more titles still being written.`,
+  description: `Books by ${site.name} — including Released and the pre-order for In DEPENDENCE.`,
 };
 
 export const revalidate = 30;
@@ -42,7 +43,10 @@ export default async function BookshelfPage() {
             {books.map((book) => {
               const cover = book.images[0];
               const extras = book.images.slice(1);
-              const hasPurchase = Boolean(book.purchase_url);
+              const purchaseLabel = bookPurchaseLabel(
+                book.status,
+                book.purchase_url,
+              );
 
               return (
                 <article
@@ -127,14 +131,14 @@ export default async function BookshelfPage() {
                       >
                         Read more
                       </Link>
-                      {hasPurchase ? (
+                      {purchaseLabel && book.purchase_url ? (
                         <a
-                          href={book.purchase_url!}
+                          href={book.purchase_url}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex w-fit items-center rounded-md bg-terracotta px-5 py-2.5 text-sm font-medium text-cream transition hover:bg-terracotta-deep"
                         >
-                          Get on Selar →
+                          {purchaseLabel}
                         </a>
                       ) : null}
                     </div>

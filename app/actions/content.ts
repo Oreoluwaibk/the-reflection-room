@@ -144,7 +144,7 @@ export async function saveBook(
   if (!title || !slug) {
     return { ok: false, message: "Title is required." };
   }
-  if (!["Published", "Coming Soon"].includes(status)) {
+  if (!["Published", "Coming Soon", "Pre-order"].includes(status)) {
     return { ok: false, message: "Invalid book status." };
   }
   if (about.length === 0) {

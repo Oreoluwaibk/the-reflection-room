@@ -160,6 +160,7 @@ export function AdminBooksPanel({ books }: Props) {
                 className="w-full rounded-md border border-sage/35 bg-cream-deep/40 px-3.5 py-2.5 text-sm outline-none transition focus:border-sage disabled:opacity-60"
               >
                 <option value="Published">Published</option>
+                <option value="Pre-order">Pre-order</option>
                 <option value="Coming Soon">Coming Soon</option>
               </select>
             </div>
